@@ -20,6 +20,14 @@ export default class App extends React.Component {
 
   takeTurn = (row, col) => {
     console.log('taking a turn!')
+    let newData = [...this.state.tableData]
+    newData[row][col] = this.state.turnX ? 'X' : 'O'
+
+    this.setState({
+      tableData: newData,
+      turnX: !this.state.turnX,
+      turnCount: this.state.turnCount++
+    })
   }
 
   reset = () => {
