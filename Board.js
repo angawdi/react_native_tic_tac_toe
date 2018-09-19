@@ -6,11 +6,6 @@ export default class Board extends Component {
 		super(props);		
 	}
 
-	takeTurn = (row, col) => {
-		//Alert.alert(`This is row ${row}, column ${col}`);
-		this.props.takeTurn(row, col);
-	}
-
 	render() {
 		const elements = this.props.tableData.map((row, rowIndex) => {
 			return (
@@ -18,7 +13,7 @@ export default class Board extends Component {
 					{
 						row.map((cell, cellIndex) => {
 							return (
-								<TouchableOpacity key={cellIndex} onPress={()=> this.takeTurn(rowIndex, cellIndex)}>
+								<TouchableOpacity key={cellIndex} onPress={()=> this.props.takeTurn(rowIndex, cellIndex)}>
 									<Text style={styles.cell}>{cell}</Text>
 								</TouchableOpacity>
 							)
