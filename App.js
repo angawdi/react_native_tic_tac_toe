@@ -11,8 +11,8 @@ export default class App extends React.Component {
       turnCount: 1,
       winner: null,
       tableData: [
-        ['', '', ''],
-        ['', '', ''],
+        ['', 'X', ''],
+        ['O', '', ''],
         ['', '', ''],
       ],
     }
