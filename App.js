@@ -1,13 +1,46 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { Header } from 'react-native-elements';
 
 export default class App extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      turnX: true,
+      turnCount: 1,
+      winner: null,
+      tableData: [
+        ['', '', ''],
+        ['', '', ''],
+        ['', '', ''],
+      ],
+    }
+  }
+
+  reset = () => {
+    console.log('resetting!')
+    this.setState({
+      turnX: true,
+      turnCount: 1,
+      winner: null,
+      tableData: [
+        ['', '', ''],
+        ['', '', ''],
+        ['', '', ''],
+      ],
+    })
+  }
+
   render() {
     return (
       <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
+        <Header
+          leftComponent={{ icon: 'home', color: '#fff' }}
+          centerComponent={{ text: 'TIC-TAC-TOE!', style: { color: '#fff' } }}
+          outerContainerStyle={{ backgroundColor: '#7f6dcc'}} />
+        <View style={styles.centered}>
+          <Text style={styles.turn}>Turn: {this.state.turnX ? 'X': 'O'}</Text>
+        </View>
       </View>
     );
   }
@@ -16,8 +49,14 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#0f0',
+  },
+  centered: {
     alignItems: 'center',
     justifyContent: 'center',
   },
+  turn: {
+    fontSize: 35,
+    marginTop: 15
+  }
 });
