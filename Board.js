@@ -7,7 +7,8 @@ export default class Board extends Component {
 	}
 
 	takeTurn = (row, col) => {
-		Alert.alert(`This is row ${row}, column ${col}`);
+		//Alert.alert(`This is row ${row}, column ${col}`);
+		this.props.takeTurn(row, col);
 	}
 
 	render() {
@@ -20,10 +21,12 @@ export default class Board extends Component {
 								<TouchableOpacity key={cellIndex} onPress={()=> this.takeTurn(rowIndex, cellIndex)}>
 									<Text style={styles.cell}>{cell}</Text>
 								</TouchableOpacity>
-							);
+							)
 						})
 					}
-		});
+				</View>
+			)
+		})
 		return(
 			<View>
 				{elements}
@@ -45,6 +48,7 @@ const styles = Stylesheet.create({
 		flex: 1,
 		justifyContent: 'center',
 		alignItems: 'center',
+		textAlign: 'center',
 		lineHeight: 100,
 	}
 })

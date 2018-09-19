@@ -11,11 +11,15 @@ export default class App extends React.Component {
       turnCount: 1,
       winner: null,
       tableData: [
-        ['', 'X', ''],
-        ['O', '', ''],
+        ['', '', ''],
+        ['', '', ''],
         ['', '', ''],
       ],
     }
+  }
+
+  takeTurn = (row, col) => {
+    console.log('taking a turn!')
   }
 
   reset = () => {
@@ -40,7 +44,7 @@ export default class App extends React.Component {
           centerComponent={{ text: 'TIC-TAC-TOE!', style: { color: '#fff' } }}
           outerContainerStyle={{ backgroundColor: '#7f6dcc'}} />
         <View style={styles.centered}>
-          <Board tableData={this.state.tableData}/>
+          <Board takeTurn={this.takeTurn} tableData={this.state.tableData}/>
         <View style={styles.centered}>
           <Text style={styles.turn}>Turn: {this.state.turnX ? 'X': 'O'}</Text>
         </View>
