@@ -12,7 +12,17 @@ export default class Board extends Component {
 
 	render() {
 		const elements = this.props.tableData.map((row, rowIndex) => {
-			return (<Text>Row {rowIndex}</Text>)
+			return (
+				<View style={style.row} key={rowIndex}>
+					{
+						row.map((cell, cellIndex) => {
+							return (
+								<TouchableOpacity key={cellIndex} onPress={()=> this.takeTurn(rowIndex, cellIndex)}>
+									<Text style={styles.cell}>{cell}</Text>
+								</TouchableOpacity>
+							);
+						})
+					}
 		});
 		return(
 			<View>
