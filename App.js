@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { Header } from 'react-native-elements';
+import Board from './Board';
 
 export default class App extends React.Component {
   constructor(props){
@@ -35,9 +36,11 @@ export default class App extends React.Component {
     return (
       <View style={styles.container}>
         <Header
-          leftComponent={{ icon: 'home', color: '#fff' }}
+          leftComponent={{ icon: 'home', color: '#fff', onPress: () => this.reset() }}
           centerComponent={{ text: 'TIC-TAC-TOE!', style: { color: '#fff' } }}
           outerContainerStyle={{ backgroundColor: '#7f6dcc'}} />
+        <View style={styles.centered}>
+          <Board />
         <View style={styles.centered}>
           <Text style={styles.turn}>Turn: {this.state.turnX ? 'X': 'O'}</Text>
         </View>
