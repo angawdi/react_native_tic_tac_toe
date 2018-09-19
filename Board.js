@@ -12,14 +12,18 @@ export default class Board extends Component {
 				<View style={style.row} key={rowIndex}>
 					{
 						row.map((cell, cellIndex) => {
-							return (
-								<TouchableOpacity key={cellIndex} onPress={()=> this.props.takeTurn(rowIndex, cellIndex)}>
-									<Text style={styles.cell}>{cell}</Text>
-								</TouchableOpacity>
-							)
-						})
-					}
-				</View>
+							if(cell){
+								return (
+									<TouchableOpacity key={cellIndex}>
+										<Text style={styles.cell}>{cell}</Text>
+									</TouchableOpacity>
+								)
+							}
+						return (
+									<TouchableOpacity key={cellIndex} onPress={()=> this.props.takeTurn(rowIndex, cellIndex)}>
+										<Text style={styles.cell}>{cell}</Text>
+									</TouchableOpacity>
+								)
 			)
 		})
 		return(
