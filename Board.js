@@ -11,9 +11,12 @@ export default class Board extends Component {
 	}
 
 	render() {
+		const elements = this.props.tableData.map((row, rowIndex) => {
+			return (<Text>Row {rowIndex}</Text>)
+		});
 		return(
 			<View>
-				<Text>Board goes here</Text>
+				{elements}
 			</View>
 		)
 	}
