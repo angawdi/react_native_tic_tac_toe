@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
-import { Stylesheet, Text, View } from 'react-native';
+import { Alert, Stylesheet, Text, TouchableOpacity, View } from 'react-native';
 
 export default class Board extends Component {
 	constructor(props){
 		super(props);		
+	}
+
+	takeTurn = (row, col) => {
+		Alert.alert(`This is row ${row}, column ${col}`);
 	}
 
 	render() {

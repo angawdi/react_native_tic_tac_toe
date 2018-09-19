@@ -40,7 +40,7 @@ export default class App extends React.Component {
           centerComponent={{ text: 'TIC-TAC-TOE!', style: { color: '#fff' } }}
           outerContainerStyle={{ backgroundColor: '#7f6dcc'}} />
         <View style={styles.centered}>
-          <Board />
+          <Board tableData={this.state.tableData}/>
         <View style={styles.centered}>
           <Text style={styles.turn}>Turn: {this.state.turnX ? 'X': 'O'}</Text>
         </View>
@@ -57,9 +57,9 @@ const styles = StyleSheet.create({
   centered: {
     alignItems: 'center',
     justifyContent: 'center',
+    marginTop: 15
   },
   turn: {
     fontSize: 35,
-    marginTop: 15
   }
 });
